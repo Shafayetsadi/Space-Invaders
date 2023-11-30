@@ -41,12 +41,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/shafa/Documents/Java/SpaceInvaders",
+    "last_opened_file_path": "C:/Users/shafa/Documents/Java/SpaceInvaders/Space-Invaders",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "terminal",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -115,5 +114,9 @@
     </ignored-roots>
     <MESSAGE value="Space Invaders Game: version 0.1x" />
     <option name="LAST_COMMIT_MESSAGE" value="Space Invaders Game: version 0.1x" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
