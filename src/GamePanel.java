@@ -13,15 +13,17 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenHeight = tileSize * maxScreenRow; // 576
 
     int FPS = 60;
+    int frames = 0;
     int direction = -1;
     int deaths = 0;
-    int numberOfAliens = 6;
+    int numberOfAliens = 60;
 
     KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
     Player player;
     Shoot shoot;
     List<Alien> aliens;
+    List<Shoot> shoots;
 
     boolean inGame = true;
     String explosionImg = "src/images/exp01.png";
@@ -37,14 +39,15 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
 
         aliens = new ArrayList<>();
-        for(int i=1; i<6; i++){
+        for(int i=1; i<5; i++){
             for(int j=1; j<16; j++){
                 var alien = new Alien(this, 48*j+12*j, 48*i+12*i);
                 aliens.add(alien);
             }
         }
         player = new Player(this, keyHandler);
-        shoot = new Shoot(this);
+        shoots = new ArrayList<>();
+        shoots.add(new Shoot(this, player));
     }
 
     public void startGameThread(){
@@ -54,28 +57,21 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     @Override
-    public void run() {
-        double drawInterval = 1000000000/FPS; // 0.01667 seconds
-        double nextDrawTime = System.nanoTime() + drawInterval;
+    public void run(){
+        double drawInterval = (double) 1000000000 /FPS;
+        double delta = 0;
+        long lastTime = System.nanoTime();
+        long currentTime;
 
         while (gameThread != null){
+            currentTime = System.nanoTime();
+            delta += (currentTime - lastTime) / drawInterval;
+            lastTime = currentTime;
 
-            // UPDATE
-            update();
-
-            // DRAW
-            repaint();
-
-            double remainingTime = nextDrawTime - System.nanoTime();
-            remainingTime /= 1000000;
-            if(remainingTime < 0) remainingTime = 0;
-            try {
-                Thread.sleep((long) remainingTime);
-
-//                Thread.sleep((long) remainingTime/2);
-                nextDrawTime += drawInterval;
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            if (delta >= 1){
+                update();
+                repaint();
+                delta--;
             }
         }
     }
@@ -86,28 +82,39 @@ public class GamePanel extends JPanel implements Runnable{
             message = "Game won!";
         }
         player.update();
-        if(shoot.isVisible()){
-            int shootX = shoot.getX();
-            int shootY = shoot.getY();
 
-            for(Alien alien : aliens){
-                int alienX = alien.getX();
-                int alienY = alien.getY();
+        if(frames == 60){
+            shoots.add(new Shoot(this, player));
+            frames = 0;
+        }
+        else{
+            frames++;
+        }
+        for(Shoot shoot: shoots){
+            if(shoot.isVisible()){
+                int shootX = shoot.getX();
+                int shootY = shoot.getY();
 
-                if(alien.isVisible() && shoot.isVisible()){
-                    if (shootX >= (alienX) && shootX <= (alienX + 48)
-                            && shootY >= (alienY) && shootY <= (alienY + 48)) {
-                        var ii = new ImageIcon(explosionImg);
-                        alien.setImage(ii.getImage());
-                        alien.setDying(true);
-                        deaths++;
-                        shoot.resetPosition();
+                for(Alien alien : aliens){
+                    int alienX = alien.getX();
+                    int alienY = alien.getY();
+
+                    if(alien.isVisible() && shoot.isVisible()){
+                        if (shootX >= (alienX) && shootX <= (alienX + 48)
+                                && shootY >= (alienY) && shootY <= (alienY + 48)) {
+                            var ii = new ImageIcon(explosionImg);
+                            alien.setImage(ii.getImage());
+                            alien.setDying(true);
+                            deaths++;
+                            shoot.setVisible(false);
+                        }
                     }
                 }
+                shoot.update();
+                if(shoot.getY() <= 0) shoot.setVisible(false);
             }
-            shoot.update();
-            if(shoot.getY() <= 0) shoot.resetPosition();
         }
+
 
 
         for (Alien alien : aliens) {
@@ -115,13 +122,13 @@ public class GamePanel extends JPanel implements Runnable{
             if (x >= screenWidth - 48 - 5 && direction != -1) {
                 direction = -1;
                 for (Alien a : aliens) {
-                    a.setY(a.getY() + 15);
+                    a.setY(a.getY() + 5);
                 }
             }
             if (x <= 5 && direction != 1) {
                 direction = 1;
                 for (Alien a : aliens) {
-                    a.setY(a.getY() + 15);
+                    a.setY(a.getY() + 5);
                 }
             }
         }
@@ -194,8 +201,10 @@ public class GamePanel extends JPanel implements Runnable{
                 player.setVisible(false);
                 inGame = false;
             }
-            if (shoot.isVisible()) {
-                shoot.draw(graphics2D, this);
+            for (Shoot shoot: shoots){
+                if (shoot.isVisible()) {
+                    shoot.draw(graphics2D, this);
+                }
             }
 
             for(Alien alien : aliens){
@@ -220,6 +229,10 @@ public class GamePanel extends JPanel implements Runnable{
         graphics2D.dispose();
     }
     public void gameOver(Graphics2D graphics2D){
+        player.setVisible(false);
+        for (Shoot shoot: shoots){
+            shoot.setVisible(false);
+        }
         graphics2D.setColor(Color.black);
         graphics2D.fillRect(0, 0, this.screenWidth, this.screenHeight);
 
