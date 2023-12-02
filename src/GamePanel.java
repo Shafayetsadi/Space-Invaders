@@ -21,7 +21,6 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
     Player player;
-    Shoot shoot;
     List<Alien> aliens;
     List<Shoot> shoots;
 

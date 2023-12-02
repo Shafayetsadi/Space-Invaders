@@ -11,18 +11,6 @@ public class Shoot extends Entity{
         loadImage();
         this.visible = true;
     }
-    public Shoot(GamePanel gp, int x, int y){
-        this.gp = gp;
-        this.x = x;
-        this.y = y;
-        speed = 4;
-        loadImage();
-        this.visible = true;
-    }
-    void resetPosition(Player player){
-        this.x = player.x + 20;
-        this.y = player.y;
-    }
     public void update(){
         y -= 4;
 //        if(y <= 0) setVisible(false);
