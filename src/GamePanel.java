@@ -16,19 +16,16 @@ public class GamePanel extends JPanel implements Runnable{
     int frames = 0;
     int direction = -1;
     int deaths = 0;
-    int numberOfAliens = 60;
-
+    int numberOfAliens = 48;
     KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
     Player player;
     List<Alien> aliens;
     List<Shoot> shoots;
 
-    boolean inGame = true;
+    boolean inGame = false;
     String explosionImg = "src/images/exp01.png";
-    String message = "Game Over";
-
-
+    String message = "Press enter to start the game.";
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -37,10 +34,16 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
 
+        init();
+    }
 
-
+    public void startGameThread(){
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+    public void init(){
         aliens = new ArrayList<>();
-        for(int i=1; i<5; i++){
+        for(int i=1; i<4; i++){
             for(int j=1; j<16; j++){
                 var alien = new Alien(this, 48*j+12*j, 48*i+12*i);
                 aliens.add(alien);
@@ -49,11 +52,6 @@ public class GamePanel extends JPanel implements Runnable{
         player = new Player(this, keyHandler);
         shoots = new ArrayList<>();
         shoots.add(new Shoot(this, player));
-    }
-
-    public void startGameThread(){
-        gameThread = new Thread(this);
-        gameThread.start();
     }
 
 
@@ -78,115 +76,124 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update(){
-        if(deaths == numberOfAliens){
-            inGame = false;
-            message = "Game won!";
+        if(!inGame && keyHandler.enterPressed){
+            inGame = true;
+            init();
         }
-        player.update();
+        if(inGame){
+            if(deaths == numberOfAliens){
+                inGame = false;
+                message = "Game won! Press enter to start new game.";
+                deaths = 0;
+                return;
+            }
+            player.update();
 
-        if(frames == 60){
-            shoots.add(new Shoot(this, player));
-            frames = 0;
-        }
-        else{
-            frames++;
-        }
-        for(Shoot shoot: shoots){
-            if(shoot.isVisible()){
-                int shootX = shoot.getX();
-                int shootY = shoot.getY();
+            if(frames == 30){
+                shoots.add(new Shoot(this, player));
+                frames = 0;
+            }
+            else{
+                frames++;
+            }
+            for(Shoot shoot: shoots){
+                if(shoot.isVisible()){
+                    int shootX = shoot.getX();
+                    int shootY = shoot.getY();
 
-                for(Alien alien : aliens){
-                    int alienX = alien.getX();
-                    int alienY = alien.getY();
+                    for(Alien alien : aliens){
+                        int alienX = alien.getX();
+                        int alienY = alien.getY();
 
-                    if(alien.isVisible() && shoot.isVisible()){
-                        if (shootX >= (alienX) && shootX <= (alienX + 48)
-                                && shootY >= (alienY) && shootY <= (alienY + 48)) {
-                            var ii = new ImageIcon(explosionImg);
-                            alien.setImage(ii.getImage());
-                            alien.setDying(true);
-                            deaths++;
-                            shoot.setVisible(false);
+                        if(alien.isVisible() && shoot.isVisible()){
+                            if (shootX >= (alienX) && shootX <= (alienX + 48)
+                                    && shootY >= (alienY) && shootY <= (alienY + 48)) {
+                                var ii = new ImageIcon(explosionImg);
+                                alien.setImage(ii.getImage());
+                                alien.setDying(true);
+                                deaths++;
+                                shoot.setVisible(false);
+                            }
                         }
                     }
+                    shoot.update();
+                    if(shoot.getY() <= 0) shoot.setVisible(false);
                 }
-                shoot.update();
-                if(shoot.getY() <= 0) shoot.setVisible(false);
+            }
+
+
+
+            for (Alien alien : aliens) {
+                int x = alien.getX();
+                if (x >= screenWidth - 48 - 5 && direction != -1) {
+                    direction = -1;
+                    for (Alien a : aliens) {
+                        a.setY(a.getY() + 5);
+                    }
+                }
+                if (x <= 5 && direction != 1) {
+                    direction = 1;
+                    for (Alien a : aliens) {
+                        a.setY(a.getY() + 5);
+                    }
+                }
+            }
+
+            for (Alien alien : aliens) {
+                if (alien.isVisible()) {
+                    int y = alien.getY();
+                    if (y > screenHeight - 48) {
+                        inGame = false;
+                        message = "Invasion! Press enter to start new game.";
+                    }
+                    alien.update(direction);
+                }
+            }
+
+            var generator = new Random();
+
+            for (Alien alien : aliens) {
+                int shot = generator.nextInt(8);
+                Rocket rocket = alien.getRocket();
+
+                if (shot == 5 && alien.isVisible() && rocket.isDestroyed()) {
+
+                    rocket.setDestroyed(false);
+                    rocket.setX(alien.getX());
+                    rocket.setY(alien.getY());
+                }
+
+                int bombX = rocket.getX();
+                int bombY = rocket.getY();
+                int playerX = player.getX();
+                int playerY = player.getY();
+
+                if (player.isVisible() && !rocket.isDestroyed()) {
+
+                    if (bombX >= (playerX)
+                            && bombX <= (playerX + 48)
+                            && bombY >= (playerY)
+                            && bombY <= (playerY + 48)) {
+
+                        var ii = new ImageIcon(explosionImg);
+                        player.setImage(ii.getImage());
+                        player.setDying(true);
+                        rocket.setDestroyed(true);
+                    }
+                }
+
+                if (!rocket.isDestroyed()) {
+
+                    rocket.setY(rocket.getY() + 1);
+
+                    if (rocket.getY() >= screenHeight - 16) {
+
+                        rocket.setDestroyed(true);
+                    }
+                }
             }
         }
 
-
-
-        for (Alien alien : aliens) {
-            int x = alien.getX();
-            if (x >= screenWidth - 48 - 5 && direction != -1) {
-                direction = -1;
-                for (Alien a : aliens) {
-                    a.setY(a.getY() + 5);
-                }
-            }
-            if (x <= 5 && direction != 1) {
-                direction = 1;
-                for (Alien a : aliens) {
-                    a.setY(a.getY() + 5);
-                }
-            }
-        }
-
-        for (Alien alien : aliens) {
-            if (alien.isVisible()) {
-                int y = alien.getY();
-                if (y > screenHeight - 48) {
-                    inGame = false;
-                    message = "Invasion!";
-                }
-                alien.update(direction);
-            }
-        }
-
-        var generator = new Random();
-
-        for (Alien alien : aliens) {
-            int shot = generator.nextInt(8);
-            Rocket rocket = alien.getRocket();
-
-            if (shot == 5 && alien.isVisible() && rocket.isDestroyed()) {
-
-                rocket.setDestroyed(false);
-                rocket.setX(alien.getX());
-                rocket.setY(alien.getY());
-            }
-
-            int bombX = rocket.getX();
-            int bombY = rocket.getY();
-            int playerX = player.getX();
-            int playerY = player.getY();
-
-            if (player.isVisible() && !rocket.isDestroyed()) {
-
-                if (bombX >= (playerX)
-                        && bombX <= (playerX + 48)
-                        && bombY >= (playerY)
-                        && bombY <= (playerY + 48)) {
-
-                    var ii = new ImageIcon(explosionImg);
-                    player.setImage(ii.getImage());
-                    player.setDying(true);
-                    rocket.setDestroyed(true);
-                }
-            }
-
-            if (!rocket.isDestroyed()) {
-
-                rocket.setY(rocket.getY() + 1);
-
-                if (rocket.getY() >= screenHeight - 16) {
-
-                    rocket.setDestroyed(true);
-                }
-            }
-        }
 
     }
     @Override
@@ -201,6 +208,7 @@ public class GamePanel extends JPanel implements Runnable{
             if (player.isDying()) {
                 player.setVisible(false);
                 inGame = false;
+                message = "You are dead! Press enter to start new game";
             }
             for (Shoot shoot: shoots){
                 if (shoot.isVisible()) {
@@ -225,15 +233,12 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
         else{
-            gameOver(graphics2D);
+            gameMenu(graphics2D);
         }
+        System.out.println("Arigato");
         graphics2D.dispose();
     }
-    public void gameOver(Graphics2D graphics2D){
-        player.setVisible(false);
-        for (Shoot shoot: shoots){
-            shoot.setVisible(false);
-        }
+    public void gameMenu(Graphics2D graphics2D){
         graphics2D.setColor(Color.black);
         graphics2D.fillRect(0, 0, this.screenWidth, this.screenHeight);
 
