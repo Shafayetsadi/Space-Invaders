@@ -3,25 +3,13 @@ import java.awt.*;
 
 public class Shoot extends Entity{
     GamePanel gp;
-    public Shoot(GamePanel gp){
+    public Shoot(GamePanel gp, Player player){
         this.gp = gp;
-        this.x = gp.screenWidth/2 - 24;
-        this.y = gp.screenHeight - 80;
+        this.x = player.x + 20;
+        this.y = player.y;
         speed = 4;
         loadImage();
         this.visible = true;
-    }
-    public Shoot(GamePanel gp, int x, int y){
-        this.gp = gp;
-        this.x = x;
-        this.y = y;
-        speed = 4;
-        loadImage();
-        this.visible = true;
-    }
-    void resetPosition(){
-        this.x = gp.screenWidth/2 - 24;
-        this.y = gp.screenHeight - 80;
     }
     public void update(){
         y -= 4;
