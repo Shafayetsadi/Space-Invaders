@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731e0dc7-9c94-48aa-84c7-3480d24039e9" name="Changes" comment="">
+    <list default="true" id="731e0dc7-9c94-48aa-84c7-3480d24039e9" name="Changes" comment="Space Invaders Game: version 0.2x">
+      <change afterPath="$PROJECT_DIR$/src/images/logo.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpaceInvaders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SpaceInvaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpaceInvaders.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,27 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Shafayetsadi&quot;
+  }
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3a6b454b-46a6-4607-a85a-99dddb921f9f" />
+        <option name="url" value="https://github.com/Shafayetsadi/Space-Invaders.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -38,20 +58,23 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2YhPrae1du0S7Xnb17aaMwIeRTl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "Version-0.2x",
+    "git-widget-placeholder": "Version-0.3x",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/shafa/Documents/Java/SpaceInvaders/Space-Invaders",
     "node.js.detected.package.eslint": "true",
@@ -86,7 +109,8 @@
       <workItem from="1701405112766" duration="859000" />
       <workItem from="1701406100314" duration="639000" />
       <workItem from="1701407709322" duration="92000" />
-      <workItem from="1701515256960" duration="3562000" />
+      <workItem from="1701515256960" duration="5522000" />
+      <workItem from="1701534788831" duration="1228000" />
     </task>
     <task id="LOCAL-00001" summary="Space Invaders Game: version 0.1x">
       <option name="closed" value="true" />
@@ -112,7 +136,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701405273754</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Space Invaders Game: version 0.2x">
+      <option name="closed" value="true" />
+      <created>1701523324870</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701523324870</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Space Invaders Game: version 0.2x">
+      <option name="closed" value="true" />
+      <created>1701523392315</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701523392315</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +166,7 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="origin/main" />
+                  <option value="main" />
                 </option>
               </RecentGroup>
               <RecentGroup>
@@ -136,7 +176,7 @@
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="main" />
+                  <option value="origin/main" />
                 </option>
               </RecentGroup>
               <RecentGroup>
@@ -169,11 +209,16 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
                 </map>
+              </option>
+              <option name="TEXT_FILTER_SETTINGS">
+                <TextFilterSettings>
+                  <option name="MATCH_CASE" value="true" />
+                </TextFilterSettings>
               </option>
             </State>
           </value>
@@ -182,11 +227,13 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Space Invaders Game: version 0.1x" />
-    <option name="LAST_COMMIT_MESSAGE" value="Space Invaders Game: version 0.1x" />
+    <MESSAGE value="Space Invaders Game: version 0.2x" />
+    <option name="LAST_COMMIT_MESSAGE" value="Space Invaders Game: version 0.2x" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

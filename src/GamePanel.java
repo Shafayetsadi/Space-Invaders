@@ -37,6 +37,8 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
 
+
+
         aliens = new ArrayList<>();
         for(int i=1; i<5; i++){
             for(int j=1; j<16; j++){

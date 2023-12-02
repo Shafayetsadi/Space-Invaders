@@ -9,6 +9,9 @@ public class SpaceInvaders {
         window.setResizable(false);
         window.setTitle("Space Invaders");
 
+        ImageIcon logo = new ImageIcon("src/images/logo.jpg");
+        window.setIconImage(logo.getImage());
+
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
 
