@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731e0dc7-9c94-48aa-84c7-3480d24039e9" name="Changes" comment="Added logo of Space Invaders">
+    <list default="true" id="731e0dc7-9c94-48aa-84c7-3480d24039e9" name="Changes" comment="Added Game Menu Screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Alien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Alien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +113,8 @@
       <workItem from="1701407709322" duration="92000" />
       <workItem from="1701515256960" duration="5522000" />
       <workItem from="1701534788831" duration="5355000" />
-      <workItem from="1701540226103" duration="113000" />
+      <workItem from="1701540226103" duration="2594000" />
+      <workItem from="1701782596064" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="Space Invaders Game: version 0.1x">
       <option name="closed" value="true" />
@@ -163,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701536238031</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Game Menu Screen">
+      <option name="closed" value="true" />
+      <created>1701540377895</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701540377895</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +259,8 @@
     <MESSAGE value="Space Invaders Game: version 0.1x" />
     <MESSAGE value="Space Invaders Game: version 0.2x" />
     <MESSAGE value="Added logo of Space Invaders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added logo of Space Invaders" />
+    <MESSAGE value="Added Game Menu Screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Game Menu Screen" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

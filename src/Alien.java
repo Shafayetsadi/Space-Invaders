@@ -25,4 +25,10 @@ public class Alien extends Entity{
     public void draw(Graphics2D graphics2D){
         graphics2D.drawImage(image, x, y, 48, 48, gp);
     }
+    public void initRocket(){
+        rocket.setX(x+24);
+        rocket.setY(y+48);
+        rocket.setDestroyed(false);
+        rocket.setVisible(true);
+    }
 }

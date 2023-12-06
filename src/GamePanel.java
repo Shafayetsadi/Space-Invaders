@@ -16,7 +16,7 @@ public class GamePanel extends JPanel implements Runnable{
     int frames = 0;
     int direction = -1;
     int deaths = 0;
-    int numberOfAliens = 48;
+    int numberOfAliens = 45;
     KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
     Player player;
@@ -52,6 +52,7 @@ public class GamePanel extends JPanel implements Runnable{
         player = new Player(this, keyHandler);
         shoots = new ArrayList<>();
         shoots.add(new Shoot(this, player));
+        deaths = 0;
     }
 
 
@@ -145,6 +146,7 @@ public class GamePanel extends JPanel implements Runnable{
                     if (y > screenHeight - 48) {
                         inGame = false;
                         message = "Invasion! Press enter to start new game.";
+                        deaths = 0;
                     }
                     alien.update(direction);
                 }
@@ -235,7 +237,6 @@ public class GamePanel extends JPanel implements Runnable{
         else{
             gameMenu(graphics2D);
         }
-        System.out.println("Arigato");
         graphics2D.dispose();
     }
     public void gameMenu(Graphics2D graphics2D){
