@@ -152,6 +152,7 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
 
+            
             var generator = new Random();
 
             for (Alien alien : aliens) {

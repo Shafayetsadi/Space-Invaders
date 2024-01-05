@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="731e0dc7-9c94-48aa-84c7-3480d24039e9" name="Changes" comment="Added Game Menu Screen">
+      <change afterPath="$PROJECT_DIR$/src/images/bullet03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/playerBullet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvaders/images/bullet01.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvaders/images/bullet01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvaders/images/bullet02.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvaders/images/bullet02.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Alien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Alien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/bullet01.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bullet01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/bullet02.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bullet02.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +39,6 @@
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Shafayetsadi&quot;
   }
 }</component>
   <component name="GithubProjectSettings">
@@ -71,13 +77,15 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.SpaceInvaders.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Version-0.3x&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Version-0.4x&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/shafa/Documents/Java/SpaceInvaders/Space-Invaders&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -87,7 +95,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -97,6 +105,25 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shafa\IdeaProjects\Space-Invaders\src\images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SpaceInvaders" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SpaceInvaders" />
+      <module name="SpaceInvaders" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SpaceInvaders" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\shafa\AppData\Roaming\Subversion</configuration>
@@ -115,6 +142,19 @@
       <workItem from="1701534788831" duration="5355000" />
       <workItem from="1701540226103" duration="2594000" />
       <workItem from="1701782596064" duration="24000" />
+      <workItem from="1701921848189" duration="3000" />
+      <workItem from="1702317261124" duration="50000" />
+      <workItem from="1702917523332" duration="6000" />
+      <workItem from="1703827198058" duration="767000" />
+      <workItem from="1704025861938" duration="244000" />
+      <workItem from="1704032462017" duration="406000" />
+      <workItem from="1704032881828" duration="678000" />
+      <workItem from="1704033589339" duration="233000" />
+      <workItem from="1704033832649" duration="59000" />
+      <workItem from="1704033925165" duration="372000" />
+      <workItem from="1704034307705" duration="80000" />
+      <workItem from="1704034395988" duration="841000" />
+      <workItem from="1704035253877" duration="2602000" />
     </task>
     <task id="LOCAL-00001" summary="Space Invaders Game: version 0.1x">
       <option name="closed" value="true" />
@@ -186,7 +226,7 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="origin/Version-0.3x" />
+                  <option value="origin/main" />
                 </option>
               </RecentGroup>
               <RecentGroup>
@@ -196,12 +236,17 @@
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="Version-0.2x" />
+                  <option value="Version-0.3x" />
                 </option>
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="origin/main" />
+                  <option value="origin/Version-0.3x" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Version-0.2x" />
                 </option>
               </RecentGroup>
               <RecentGroup>
@@ -234,7 +279,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Version-0.3x" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>

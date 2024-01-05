@@ -4,16 +4,19 @@ import java.awt.*;
 public class Rocket extends Entity{
     public boolean destroyed;
     GamePanel gp;
-    public Rocket(GamePanel gp, int x, int y){
+    int random=2;
+    public Rocket(GamePanel gp, int x, int y, int random){
         this.gp = gp;
         this.x = x;
         this.y = y;
         speed = 2;
-        loadImage();
+
         setDestroyed(true);
+        this.random = random;
+        loadImage();
     }
     public void loadImage(){
-        ImageIcon ii = new ImageIcon("src/images/bullet01.png");
+        ImageIcon ii = new ImageIcon("src/images/bullet0"+random+".png");
         setImage(ii.getImage());
     }
     public void setDestroyed(boolean destroyed){
