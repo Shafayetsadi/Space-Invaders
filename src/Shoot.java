@@ -16,7 +16,7 @@ public class Shoot extends Entity{
 //        if(y <= 0) setVisible(false);
     }
     public void loadImage(){
-        ImageIcon ii = new ImageIcon("src/images/bullet02.png");
+        ImageIcon ii = new ImageIcon("src/images/playerBullet.png");
         setImage(ii.getImage());
     }
     public void draw(Graphics2D graphics2D, GamePanel gp){
