@@ -26,14 +26,6 @@ public class Rocket extends Entity{
         return destroyed;
     }
 
-//    public void update(int a, int b){
-//        if(y < 0) {
-//            x = a+20;
-//            y = b;
-//        }
-//        else y -= speed;
-////        y -= speed;
-//    }
     public void draw(Graphics2D graphics2D){
         graphics2D.drawImage(image, x, y, 8, 16, gp);
     }
